@@ -1,0 +1,24 @@
+Andrew Le Nguyen
+March 1, 2021
+CSE 140 Computer Architecture
+Homework 3
+Single-Cycle MIPS Architecture
+    • Instruction: sub $rd, $rs, $rt
+        ? I type instruction: 40 PS
+        ? Input into register file: 80 PS
+        ? Output given as input to ALU: 20 PS + 100 PS = 120 PS
+        ? Output of ALU written into register: 20 PS + 60 PS = 80 PS
+        ? Total latency: 40 PS + 80 PS + 120 PS + 80 PS = 320 PS
+    • Instruction: lw $rt, pffest($rs)
+        ? I type instruction: 40 PS
+        ? Input into register file: 80 PS
+        ? Output given as input to ALU: 20 PS + 100 PS = 120 PS
+        ? Output of  ALU given an address: 200 PS
+        ? Output of ALU written into register: 20 PS + 60 PS = 80 PS
+        ? Total latency: 40 PS + 80 PS + 120 PS + 200 PS + 80 PS = 520 PS
+
+Single and Pipelined Datapaths
+    • IF + ID + EX + MEM + WB
+        ? 100 PS + 120 PS + 220 PS + 300 PS + 120 PS = 860 PS
+    • Stage delay = MEM
+        ? 300 PS ? the longest stage

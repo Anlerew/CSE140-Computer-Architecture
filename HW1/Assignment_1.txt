@@ -1,0 +1,39 @@
+Line #7
+addi $s0, $zero, -15
+type: I
+opcode: 001000, 0x8 , 8
+rs: 00000, 0x0 , 0 
+rt: 10000, 0x10 , 16 
+immediate: 1111 1111 1111 0001, 0xFFF1, -15
+Binary: 0010 0000 0001 0000 1111 1111 1111 0001
+Machine Code: 0x2010fff1
+
+Line #14
+slt $t0, $s0, $s1
+type: R
+opcode: 000000, 0x0, 0
+rs: 10000, 0x10, 16
+rt: 10001, 0x11, 17
+rd: 01000, 0x8, 8
+shamt: 00000, 0x0, 0
+funct: 101010, 0x2A, 42
+Binary: 0000 0010 0001 0001 0100 0000 0010 1010
+Machine Code: 0x0211402a
+
+Line #17
+beq $t0, $zero, LEEQ
+type: I
+opcode: 000100, 0x4, 4
+rs: 01000, 0x8, 8
+rt: 00000, 0x0, 0
+immediate: 0000000000000110, 0x0006, 6
+Binary: 0001 0001 0000 0000 0000 0000 0000 0110
+Machine Code: 0x11000006
+
+Line #20
+j GRT
+type: J
+opcode: 000010, 0x2, 2
+immediate: label address = 0x0040001c = 0000 0000 0100 0000 0000 0000 0001 1100 to 0000 0100 0000 0000 0000 0001 11
+Binary: 0000 1000 0001 0000 0000 0000 0000 0111
+Machine Code: 0x08100007

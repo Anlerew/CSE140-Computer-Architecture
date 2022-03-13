@@ -1,0 +1,55 @@
+Collaborators
+Jaeha Hwang
+
+TPS ACTIVITY 1
+5. 32 BITS
+
+6. There are 3 types, J, I, and R.
+J = j, jal
+I = addi, andi
+R = add, and
+
+7. a. I-type, 4 fields = opcode, rs, rt, immediate
+b. 8 in hex, rs is 0 & 0 in hex, rt is 16 & in hex is 0x10, 0x19
+c. addi $s0, $zero, 25
+Binary:
+0010 0000 0001 0000 0000 0000 0001 1001
+Hex:
+0x20100019
+
+8. a. 0x0230402a -> 0000 0010 0011 0000 0100 0000 0010 1010
+Opcode = 000000
+b. Type = R, can tell due to end of hex code being 2a and opcode is 000000, 6 fields = opcode, rs, rt, rd, shamt, funct
+c. 000000 10001 10000 01000 00000 101010
+opcode = 0x0 , 0
+rs = 0x11 , 17 = $s1
+rt = 0x10 , 16 = $s0
+rd = 0x8 , 8 = $t0
+shamt = 0x0 , 0
+funct = 0x2A , 42
+d. R[rd] = (R[rs] < R[rt]) ? 1 : 0, given the opcode/funct you can see what name of the code instruction is and use the MISP sheet, mapping is $t0 = ($s1 < $s0) ? 1 : 0
+e. slt $t0, $s1, $s0
+
+9. a. I-type
+b. 0x15000001 = 0001 0101 0000 0000 0000 0000 0000 0001
+000101 01000 00000 0000000000000001 
+opcode = 0x5
+rs = 0x8
+rt = 0x0
+c. target label = LESS, 0x0040001c
+d. No, but it is needed in the operation if(R[rs]!=R[rt])  PC=PC+4+BranchAddr. You will need the value of the branch address to be added to the PC. 
+e. immediate value is 1, found by comparing how many lines are in between the current line to the target label's line.
+f. 0x15000001 
+Binary:
+0001 0101 0000 0000 0000 0000 0000 0001
+Hex:
+0x15000001
+it is the same
+
+10. a. J-type, fields = opcode and address
+b. 0x2
+c. jumps to GREQ, address is 0x00400030
+d. 26 bits in the address field, squeeze the address by removing 4 bits from the beginning and 2 bits from the end, it's because the inital 4 bits are too large and the last 2 bits will always be 00 so you can remove them, binary = 0000 0000 0100 0000 0000 0000 0011 0000.
+e. Binary = 0000 1000 0001 0000 0000 0000 0000 1100
+Hex = 0x0810000c
+Yes it is the code.
